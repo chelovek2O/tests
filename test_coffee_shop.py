@@ -19,3 +19,8 @@ def test_login(browser):
 def test_logout(browser):
     browser.delete_all_cookies()
     browser.get("https://coffeecuattro.ru/")
+
+def test_fail_jira(browser,jira_client):
+    link = "http://selenium1py.pythonanywhere.com/nonexisting-page"
+    page = ProductPage(browser, link)
+    assert False
