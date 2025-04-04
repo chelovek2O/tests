@@ -19,7 +19,10 @@ def browser(request):
     browser_name = request.config.getoption("browser_name")
     if browser_name == "chrome":
         print("\n start Chrome")
-        browser = webdriver.Chrome()
+        options = Options()
+        options.page_load_strategy = 'eager'
+        browser = webdriver.Chrome(options=options)
+        browser.set_window_size(1920, 1080)
     elif browser_name == "firefox":
         print("\n start Firefox")
         browser = webdriver.Firefox()

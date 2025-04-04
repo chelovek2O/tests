@@ -3,6 +3,7 @@ from selenium import webdriver
 class BasePage:
     def __init__(self, browser: webdriver.Chrome):
         self.browser = browser
+        self.browser.implicitly_wait(5)
 
     def open(self, url):
         self.browser.get(url)
